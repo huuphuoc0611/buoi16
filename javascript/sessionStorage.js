@@ -4,15 +4,11 @@ window.onload = function () {
 
     const addBtn = document.getElementById("addBtn");
     const productList = document.getElementById("productList");
-
-    // 🔹 Load dữ liệu từ sessionStorage khi mở trang
     const saved = sessionStorage.getItem("products");
     if (saved) {
         productList.innerHTML = saved;
         bindEvents();
     }
-
-    // 🔹 Thêm sản phẩm
     addBtn.addEventListener("click", function () {
         const name = document.getElementById("name").value;
         const price = document.getElementById("price").value;
@@ -44,13 +40,9 @@ window.onload = function () {
         document.getElementById("name").value = "";
         document.getElementById("price").value = "";
     });
-
-    // 🔹 Lưu vào sessionStorage
     function save() {
         sessionStorage.setItem("products", productList.innerHTML);
     }
-
-    // 🔹 Gắn sự kiện Sửa / Xóa
     function bindEvents() {
 
         document.querySelectorAll(".delete").forEach(btn => {
